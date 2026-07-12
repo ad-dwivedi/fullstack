@@ -8,7 +8,7 @@ function App() {
 
   const fetchTasks = () => {
 
-    fetch("http://localhost:5000/tasks")
+    fetch("http://fullstack-production-c8ba.up.railway.app/tasks")
       .then((res) => res.json())
       .then((data) => {
         setAllTasks(data);
@@ -31,7 +31,7 @@ function App() {
       return;
     }
 
-    fetch("http://localhost:5000/addTask", {
+    fetch("http://fullstack-production-c8ba.up.railway.app/addTask", {
 
       method: "POST",
 
