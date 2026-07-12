@@ -11,12 +11,12 @@ app.use(express.urlencoded({ extended: true }));
 
 // Database Connection
 const db = mysql.createConnection({
-    host: "localhost",
-    user: "root",
-    password: "#Aa20106700", 
-    database: "todo_db"
+  host: process.env.MYSQLHOST,
+  user: process.env.MYSQLUSER,
+  password: process.env.MYSQLPASSWORD,
+  database: process.env.MYSQLDATABASE,
+  port: process.env.MYSQLPORT,
 });
-
 // Connect Database
 db.connect((err) => {
     if (err) {
