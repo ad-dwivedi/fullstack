@@ -60,7 +60,18 @@ function App() {
     .catch((err)=>console.log(err));
 
   };
+const deleteTask = (id) => {
 
+  fetch(`https://fullstack-production-c8ba.up.railway.app/deleteTask/${id}`, {
+    method: "DELETE",
+  })
+    .then((res) => res.text())
+    .then(() => {
+      fetchTasks();
+    })
+    .catch((err) => console.log(err));
+
+};
 
 
   return (
@@ -131,10 +142,12 @@ function App() {
               </span>
 
 
-              <button className="btn btn-danger btn-sm">
-                Delete
-              </button>
-
+             <button
+  className="btn btn-danger btn-sm"
+  onClick={() => deleteTask(item.id)}
+>
+  Delete
+</button>
 
             </li>
 

@@ -53,7 +53,25 @@ app.post("/addTask", (req, res) => {
     });
 
 });
+// Delete Task API
+app.delete("/deleteTask/:id", (req, res) => {
 
+    const { id } = req.params;
+
+    const sql = "DELETE FROM tasks WHERE id = ?";
+
+    db.query(sql, [id], (err, result) => {
+
+        if (err) {
+            console.log(err);
+            return res.status(500).send("Error");
+        }
+
+        res.send("Task Deleted Successfully");
+
+    });
+
+});
 // Get All Tasks API
 app.get("/tasks", (req, res) => {
 
